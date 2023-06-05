@@ -1,4 +1,5 @@
 .container {
+    display: flex;
 
 }
 
@@ -12,4 +13,22 @@
 
 #footer {
     
+}
+
+#calculator {
+    border: lightgray solid 2px;
+    flex-direction: column;
+
+}
+
+#calcHeader {
+
+}
+
+#calcDisplay {
+
+}
+
+#calcButtons {
+
 }
