@@ -19,7 +19,7 @@ let operator;
 let num2;
 let displayValue = 0;
 
-let calcDisplay = document.querySelector('#calcDisplay');
+let calcDisplay = document.querySelector('#display');
 calcDisplay.innerText = displayValue;
 
 function operate(firstInputNum, inputOperator, secondInputNum) {
