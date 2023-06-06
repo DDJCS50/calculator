@@ -10,7 +10,7 @@
 </head>
 <body class="container">
     <div id="header" class="container">
-
+        <h1>The Calculator</h1>
     </div>
 
     <div id="content" class="container">
@@ -18,35 +18,35 @@
             <div id="calcHeader" class="container">
                 <h2>Standard</h2>
             </div>
-            <div id="display" class="container">
-                
+            <div class="container">
+                <p id="display"></p>
             </div>
             <div id="calcButtons" class="container">
-                <div class="row">
-                    <button>AC</button>
-                    <button>%</button>
+                <div class="row endRow">
+                    <button id="clearBtn">AC</button>
+                    <button id="divideBtn" class="operationBtns">%</button>
                 </div>
                 <div class="row">
                     <button>7</button>
                     <button>8</button>
                     <button>9</button>
-                    <button>X</button>
+                    <button id="multiplyBtn" class="operationBtns">x</button>
                 </div>
                 <div class="row">
                     <button>4</button>
                     <button>5</button>
                     <button>6</button>
-                    <button>-</button>
+                    <button id="subtractBtn" class="operationBtns">-</button>
                 </div>
                 <div class="row">
                     <button>1</button>
                     <button>2</button>
                     <button>3</button>
-                    <button>+</button>
+                    <button id="addBtn" class="operationBtns">+</button>
                 </div>
-                <div class="row">
-                    <button>0</button>
-                    <button>=</button>
+                <div class="row endRow">
+                    <button id="zeroBtn">0</button>
+                    <button id="equalsBtn" class="operationBtns">=</button>
                 </div>
 
             </div>
@@ -55,7 +55,7 @@
     </div>
 
     <div id="footer" class="container">
-
+        <h4>Copyright &copy; DDJCS50 2023</h4>
     </div> 
 </body>
 </html>
