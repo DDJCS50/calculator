@@ -59,6 +59,13 @@ body {
     display: flex;
 }
 
+#displayContainer {
+    justify-content: flex-end;
+    flex: 1;
+    flex-wrap: wrap;
+    width: 300px;
+}
+
 #calcButtons {
     flex-direction: column;
     gap: 4px;
