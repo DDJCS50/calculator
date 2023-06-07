@@ -1,17 +1,17 @@
 function add(a, b) {
-    return a + b;
+    return +(+a + +b).toFixed(2);
 }
 
 function subtract(a, b) {
-    return a - b;
+    return +(+a - +b).toFixed(2);
 }
 
 function multiply(a, b) {
-    return a * b;
+    return +(+a * +b).toFixed(2);
 }
 
 function divide(a, b) {
-    return a / b;
+    return +(+a / +b).toFixed(2);
 }
 
 let num1 = '';
@@ -225,7 +225,10 @@ zeroBtn.addEventListener('click', function(event) {
 let equalsBtn = document.querySelector('#equalsBtn');
 equalsBtn.addEventListener('click', function(event) {
     event.stopPropagation();
-    // call operate function using inputted data !!!
+    prepareOperation();
+    evaluation = operate(num1, operator, num2);
+    getEvaluation(evaluation);
+    resetValues();
 });
 
 let totalDisplay = document.querySelector('#displayContainer');
@@ -273,6 +276,16 @@ function getNum2(num) {
        numDisplay.innerText = num2;
 }
 
+function getEvaluation(num) {
+    if (evaluation == '') {
+        evaluation = 0;
+    } else {
+        num1 = evaluation;
+    }
+    let numDisplay = document.getElementById('num1');
+    numDisplay.innerText = evaluation;
+}
+
 function prepareOperation() {
     totalDisplay.textContent = '';
     displayNum1 = populateDisplay('');
@@ -281,4 +294,12 @@ function prepareOperation() {
     displayOperator.setAttribute('id', 'operator');
     displayNum2 = populateDisplay('');
     displayNum2.setAttribute('id', 'num2');
+}
+
+function resetValues() {
+    num1 = '';
+    operator = '';
+    num2 = '';
+    displayValue = 0;
+    evaluation = '';
 }
