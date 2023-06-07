@@ -14,9 +14,9 @@ function divide(a, b) {
     return a / b;
 }
 
-let num1;
-let operator;
-let num2;
+let num1 = '';
+let operator = '';
+let num2 = '';
 let displayValue = 0;
 
 let calcDisplay = document.querySelector('#display');
@@ -50,7 +50,8 @@ let sevenBtn = document.querySelector('#sevenBtn');
 sevenBtn.addEventListener('click', function(event) {
     event.stopPropagation();
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
-    populateDisplay('7');
+    prepareOperation();
+    getNum1('7');
 });
 let eightBtn = document.querySelector('#eightBtn');
 eightBtn.addEventListener('click', function(event) {
@@ -68,7 +69,10 @@ let multiplyBtn = document.querySelector('#multiplyBtn');
 multiplyBtn.addEventListener('click', function(event) {
     event.stopPropagation();
     populateDisplay('\xa0x\xa0');
-    // call operate function using inputted data !!!
+    prepareOperation();
+    let numDisplay = document.getElementById('num1');
+    numDisplay.innerText = num1;
+    getOperator('x');
 });
 let fourBtn = document.querySelector('#fourBtn');
 fourBtn.addEventListener('click', function(event) {
@@ -141,8 +145,45 @@ function populateDisplay(btn) {
     newDisplayElement.style.fontWeight = 'bolder';
     newDisplayElement.style.fontSize = '48px';
     totalDisplay.appendChild(newDisplayElement);
+    return newDisplayElement;
 }
 
-function addToDisplay(btn) {
-    // currentP.concat(newText) -> Add concat functionality instead of appending endless p's !!!!!!
+function getNum1(num) {
+   if (num1 == '') {
+    num1 = num;
+   } else {
+    num1 += num;
+   } 
+   let numDisplay = document.getElementById('num1');
+   numDisplay.innerText = num1;
+}
+
+function getOperator(symbol) {
+    if (operator == '') {
+        operator = symbol;
+       } else if (operator == 'x' || operator == '/' || operator == '+' || operator == '-') {
+        operator = symbol;
+       } 
+       let operatorDisplay = document.getElementById('operator');
+       operatorDisplay.innerText = `\xa0${operator}\xa0`;
+}
+
+function getNum2(num) {
+    if (num2 == '') {
+        num2 = num;
+       } else {
+        num2 += num;
+       } 
+       let numDisplay = document.getElementById('num2');
+       numDisplay.innerText = num2;
+}
+
+function prepareOperation() {
+    totalDisplay.textContent = '';
+    displayNum1 = populateDisplay('');
+    displayNum1.setAttribute('id', 'num1');
+    displayOperator = populateDisplay('');
+    displayOperator.setAttribute('id', 'operator');
+    displayNum2 = populateDisplay('');
+    displayNum2.setAttribute('id', 'num2');
 }
