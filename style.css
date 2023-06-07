@@ -63,6 +63,7 @@ body {
     flex: 1;
     flex-wrap: wrap;
     width: 300px;
+    padding-right: 4px;
 }
 
 #calcButtons {
