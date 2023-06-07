@@ -37,7 +37,6 @@ body {
     border: lightgray solid 2px;
     flex-direction: column;
     height: auto;
-    width: 300px;
     gap: 4px;
     border: 2px solid gray;
     border-radius: 2px;
