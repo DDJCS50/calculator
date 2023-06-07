@@ -33,7 +33,7 @@ function operate(firstInputNum, inputOperator, secondInputNum) {
         return add(firstInputNum, secondInputNum);
     } else if (inputOperator == '-') {
         return subtract(firstInputNum, secondInputNum);
-    } else if (inputOperator == '*') {
+    } else if (inputOperator == 'x') {
         return multiply(firstInputNum, secondInputNum);
     } else if (inputOperator == '/') {
         return divide(firstInputNum, secondInputNum);
