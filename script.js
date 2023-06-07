@@ -18,6 +18,7 @@ let num1 = '';
 let operator = '';
 let num2 = '';
 let displayValue = 0;
+let evaluation = '';
 
 let calcDisplay = document.querySelector('#display');
 calcDisplay.innerText = displayValue;
@@ -43,32 +44,59 @@ clearBtn.addEventListener('click', function(event) {
 let divideBtn = document.querySelector('#divideBtn');
 divideBtn.addEventListener('click', function(event) {
     event.stopPropagation();
-    populateDisplay('\xa0/\xa0');
-    // call operate function using inputted data !!!
+    prepareOperation();
+    let numDisplay = document.getElementById('num1');
+    numDisplay.innerText = num1;
+    getOperator('/');
 });
 let sevenBtn = document.querySelector('#sevenBtn');
 sevenBtn.addEventListener('click', function(event) {
     event.stopPropagation();
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     prepareOperation();
-    getNum1('7');
+    if (operator == '') {
+        getNum1('7');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('7');
+    }
 });
 let eightBtn = document.querySelector('#eightBtn');
 eightBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('8');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('8');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('8');
+    }
 });
 let nineBtn = document.querySelector('#nineBtn');
 nineBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('9');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('9');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('9');
+    }
 });
 let multiplyBtn = document.querySelector('#multiplyBtn');
 multiplyBtn.addEventListener('click', function(event) {
     event.stopPropagation();
-    populateDisplay('\xa0x\xa0');
     prepareOperation();
     let numDisplay = document.getElementById('num1');
     numDisplay.innerText = num1;
@@ -78,54 +106,121 @@ let fourBtn = document.querySelector('#fourBtn');
 fourBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('4');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('4');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('4');
+    }
 });
 let fiveBtn = document.querySelector('#fiveBtn');
 fiveBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('5');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('5');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('5');
+    }
 });
 let sixBtn = document.querySelector('#sixBtn');
 sixBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('6');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('6');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('6');
+    }
 });
 let subtractBtn = document.querySelector('#subtractBtn');
 subtractBtn.addEventListener('click', function(event) {
     event.stopPropagation();
-    populateDisplay('\xa0-\xa0');
-    // call operate function using inputted data !!!
+    prepareOperation();
+    let numDisplay = document.getElementById('num1');
+    numDisplay.innerText = num1;
+    getOperator('-');
 });
 let oneBtn = document.querySelector('#oneBtn');
 oneBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('1');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('1');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('1');
+    }
 });
 let twoBtn = document.querySelector('#twoBtn');
 twoBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('2');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('2');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+       operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('2');
+    }
 });
 let threeBtn = document.querySelector('#threeBtn');
 threeBtn.addEventListener('click', function(event) {
     if (totalDisplay.textContent == 0) totalDisplay.textContent = '';
     event.stopPropagation();
-    populateDisplay('3');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('3');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('3');
+    }
 });
 let addBtn = document.querySelector('#addBtn');
 addBtn.addEventListener('click', function(event) {
     event.stopPropagation();
-    populateDisplay('\xa0+\xa0');
-    // call operate function using inputted data !!!
+    prepareOperation();
+    let numDisplay = document.getElementById('num1');
+    numDisplay.innerText = num1;
+    getOperator('+');
 });
 let zeroBtn = document.querySelector('#zeroBtn');
 zeroBtn.addEventListener('click', function(event) {
     event.stopPropagation();
-    populateDisplay('0');
+    prepareOperation();
+    if (operator == '') {
+        getNum1('0');
+    } else {
+        let numDisplay = document.getElementById('num1');
+        numDisplay.innerText = num1;
+        let operatorDisplay = document.getElementById('operator');
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        getNum2('0');
+    }
 });
 let equalsBtn = document.querySelector('#equalsBtn');
 equalsBtn.addEventListener('click', function(event) {
