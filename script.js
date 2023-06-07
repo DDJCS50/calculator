@@ -11,6 +11,11 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
+    if (+b == 0 || +b == undefined || +b == null) {
+        alert('DON\'T EVEN TRY IT');
+        resetValues();
+        return;
+    }
     return +(+a / +b).toFixed(2);
 }
 
@@ -40,6 +45,7 @@ clearBtn.addEventListener('click', function(event) {
     event.stopPropagation();
     totalDisplay.textContent = '';
     populateDisplay(0);
+    resetValues();
 });
 let divideBtn = document.querySelector('#divideBtn');
 divideBtn.addEventListener('click', function(event) {
@@ -47,6 +53,12 @@ divideBtn.addEventListener('click', function(event) {
     prepareOperation();
     let numDisplay = document.getElementById('num1');
     numDisplay.innerText = num1;
+    if (operator != '') {
+        prepareOperation();
+        evaluation = operate(num1, operator, num2);
+        getEvaluation(evaluation);
+        num2 = '';
+    }
     getOperator('/');
 });
 let sevenBtn = document.querySelector('#sevenBtn');
@@ -100,6 +112,12 @@ multiplyBtn.addEventListener('click', function(event) {
     prepareOperation();
     let numDisplay = document.getElementById('num1');
     numDisplay.innerText = num1;
+    if (operator != '') {
+        prepareOperation();
+        evaluation = operate(num1, operator, num2);
+        getEvaluation(evaluation);
+        num2 = '';
+    }
     getOperator('x');
 });
 let fourBtn = document.querySelector('#fourBtn');
@@ -153,6 +171,12 @@ subtractBtn.addEventListener('click', function(event) {
     prepareOperation();
     let numDisplay = document.getElementById('num1');
     numDisplay.innerText = num1;
+    if (operator != '') {
+        prepareOperation();
+        evaluation = operate(num1, operator, num2);
+        getEvaluation(evaluation);
+        num2 = '';
+    }
     getOperator('-');
 });
 let oneBtn = document.querySelector('#oneBtn');
@@ -181,7 +205,7 @@ twoBtn.addEventListener('click', function(event) {
         let numDisplay = document.getElementById('num1');
         numDisplay.innerText = num1;
         let operatorDisplay = document.getElementById('operator');
-       operatorDisplay.innerText = `\xa0${operator}\xa0`;
+        operatorDisplay.innerText = `\xa0${operator}\xa0`;
         getNum2('2');
     }
 });
@@ -206,6 +230,12 @@ addBtn.addEventListener('click', function(event) {
     prepareOperation();
     let numDisplay = document.getElementById('num1');
     numDisplay.innerText = num1;
+    if (operator != '') {
+        prepareOperation();
+        evaluation = operate(num1, operator, num2);
+        getEvaluation(evaluation);
+        num2 = '';
+    }
     getOperator('+');
 });
 let zeroBtn = document.querySelector('#zeroBtn');
@@ -249,7 +279,7 @@ function populateDisplay(btn) {
 function getNum1(num) {
    if (num1 == '') {
     num1 = num;
-   } else {
+   } else if (num1.length < 9) {
     num1 += num;
    } 
    let numDisplay = document.getElementById('num1');
@@ -269,7 +299,7 @@ function getOperator(symbol) {
 function getNum2(num) {
     if (num2 == '') {
         num2 = num;
-       } else {
+       } else if (num2.length < 9) {
         num2 += num;
        } 
        let numDisplay = document.getElementById('num2');
@@ -279,6 +309,10 @@ function getNum2(num) {
 function getEvaluation(num) {
     if (evaluation == '') {
         evaluation = 0;
+    } else if (evaluation == undefined && num1 == '') {
+        evaluation = 0;
+    } else if (evaluation == undefined) {
+        evaluation = num1;
     } else {
         num1 = evaluation;
     }
